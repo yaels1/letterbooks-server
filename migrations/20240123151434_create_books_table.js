@@ -10,7 +10,8 @@ exports.up = function (knex) {
     })
     .createTable("theme", (table) => {
       table.increments("id").primary();
-      table.string("theme").notNullable();
+      table.boolean("fiction").notNullable();
+      table.string("name").notNullable();
     })
     .createTable("book", (table) => {
       table.increments("id").primary();
