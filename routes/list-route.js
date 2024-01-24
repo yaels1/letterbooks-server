@@ -4,12 +4,12 @@
 
 const express = require("express");
 const router = express.Router();
-const controller_list = require("../controllers/controller_list");
+const controllerList = require("../controllers/controller-list");
 
-router.route("/list").get();
+// router.route("/list").get(controllerList.listData);
 
-router.route("/list/read").get().post();
+// router.route("/list/read").get().post();
 
-router.route("/list/recommendations").get();
+// router.route("/list/recommendations").get();
 
 module.exports = router;

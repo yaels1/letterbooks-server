@@ -15,8 +15,8 @@ app.use(cors());
 
 app.use("/letterbooks/book", bookRoutes);
 app.use("/letterbooks/list", listRoutes);
-app.use("/letterbooks/homepage", homepageRoutes);
-app.use("/letterbooks/questionnaire", questionnaireRoutes);
+// app.use("/letterbooks/homepage", homepageRoutes);
+// app.use("/letterbooks/questionnaire", questionnaireRoutes);
 
 app.listen(
   SERVER_PORT,
