@@ -1,8 +1,3 @@
-// id primary key
-
-// book id
-// theme id
-
 module.exports = [
   {
     book_id: 1,
