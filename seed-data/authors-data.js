@@ -119,60 +119,8 @@ module.exports = [
     id: 27,
     name: "Rick Riordan",
   },
+  {
+    id: 28,
+    name: "Rebecca Yarros",
+  },
 ];
-
-// classic
-// "Pride and Prejudice"
-// Oliver Twist
-// Dracula
-
-// fantasy
-// ACOTAR
-// fourth wing
-// chronicles of narnia
-// harry potter
-
-// horror
-// Dracula
-// the shining
-// the book of cold cases
-
-// romance
-// ACOTAR
-// pride and prejudice
-// the fault in our stars
-
-// murder mystery
-// gone girl
-// the girl with the dragon tattoo
-// the book of cold cases
-
-// historical fiction
-// the book thief
-// All the pillars of the earth
-
-// humor
-// catch 22
-// good omens
-// whered you go Bernadette
-
-// kids
-// the hobbit
-// the chronicles of narnia
-// percy jackson
-
-// biography
-// steve jobs
-// diary of a young girl
-
-// science
-// brief history of time
-// sapiens, a brief history of humankind
-
-// cookbooks
-// mastering the art of french cooking
-// the joy of cooking
-
-// business
-// steve jobs
-// intelligent investor
