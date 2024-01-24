@@ -13,7 +13,7 @@ exports.up = function (knex) {
       .onDelete("CASCADE");
     table.string("title").notNullable();
     table.integer("pages").notNullable();
-    table.string("summary").notNullable;
+    table.text("summary").notNullable;
     table.string("image").notNullable;
   });
 };

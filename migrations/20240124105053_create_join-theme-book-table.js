@@ -3,8 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-  return knex.schema.createTable("bookTheme", (table) => {
-    table.increments("id").primary();
+  return knex.schema.createTable("book_theme", (table) => {
     table
       .integer("book_id")
       .unsigned()
