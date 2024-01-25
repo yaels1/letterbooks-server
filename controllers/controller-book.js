@@ -5,10 +5,7 @@ const bookData = async (_req, res) => {
   try {
     const getBook = await knex("book");
     res.json(getBook);
-  } catch {
-    error;
-  }
-  {
+  } catch (error) {
     res.status(400).send(`Error retrieving book: ${error}`);
     console.error(error);
   }

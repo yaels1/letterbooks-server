@@ -7,7 +7,6 @@ const SERVER_API_URL = process.env.API_URL;
 
 const bookRoutes = require("./routes/book-route");
 const listRoutes = require("./routes/list-route");
-
 const questionnaireRoutes = require("./routes/questionnaire-route");
 
 app.use(express.json());
@@ -17,7 +16,7 @@ app.use(express.static("public"));
 app.use("/letterbooks/book", bookRoutes);
 app.use("/letterbooks/list", listRoutes);
 
-// app.use("/letterbooks/questionnaire", questionnaireRoutes);
+app.use("/letterbooks/questionnaire", questionnaireRoutes);
 
 app.listen(
   SERVER_PORT,
