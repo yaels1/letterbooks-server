@@ -15,7 +15,7 @@ const bookData = async (_req, res) => {
 };
 
 const singleBook = async (req, res) => {
-  console.log(req.params.id);
+  // book data
   const singleBookData = await knex("book")
     .join("author", "author.id", "book.author_id")
     .where({ "book.id": req.params.id })
@@ -27,21 +27,23 @@ const singleBook = async (req, res) => {
       "book.image",
       "author.name"
     );
-  if (!singleBookData)
-    return res.status(404).send(`Book ID:${req.params.id} not found`);
-
+  // image url
   singleBookData.image = `${process.env.API_URL}:${process.env.PORT}/${singleBookData.image}`;
 
-  res.status(200).json(singleBookData);
-
-  const singleBookTheme = await knex("theme").whereIn(
+  // book theme find
+  const singleBookThemes = await knex("theme").whereIn(
     "id",
     knex("book_theme").select("theme_id").where("book_id", req.params.id)
   );
-  console.log("hello");
-  console.log(singleBookTheme);
+  // book theme list
+  const singleBookThemeNames = singleBookThemes.map((theme) => theme.name);
+
+  // add themes to book object
+  const singleBookAll = { ...singleBookData, themes: singleBookThemeNames };
+
+  if (!singleBookData)
+    return res.status(404).send(`Book ID:${req.params.id} not found`);
+  res.status(200).json(singleBookAll);
 };
 
 module.exports = { bookData, singleBook };
-
-// create another const that will add both of them together, bc have all the info needed

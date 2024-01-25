@@ -1,6 +1,3 @@
-//  /    get
-// /:id     get
-
 const express = require("express");
 const router = express.Router();
 const controllerBook = require("../controllers/controller-book");
