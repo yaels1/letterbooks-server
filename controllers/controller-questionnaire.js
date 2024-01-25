@@ -16,15 +16,6 @@ const questionnaireQuestions = async (req, res) => {
 };
 
 const questionnaireAnswers = async (req, res) => {
-  const answers = [
-    {
-      level: 0,
-      question: "fiction or non-fiction?",
-      answer: false,
-      answered: true,
-    },
-  ];
-
   const allBooksData = await knex("book")
     .join("author", "author.id", "book.author_id")
     .select(
@@ -35,8 +26,6 @@ const questionnaireAnswers = async (req, res) => {
       "book.image",
       "author.name"
     );
-
-  //   console.log(allBooksData);
 
   // Fetch themes for all books along with necessary columns
   const allBooksThemes = await knex("book_theme")
@@ -64,21 +53,51 @@ const questionnaireAnswers = async (req, res) => {
 
     return { ...book, themes: bookThemes };
   });
+  //   console.log(allBooksThemeNames);
 
-  console.log(allBooksThemeNames[0]);
-  let filteredBookData = null;
+  const answers = req.body;
 
-  if (answers[0].answer) {
-    filteredBookData = allBooksThemeNames.filter((book) => {
-      return book.themes[0].fiction === 1;
-    });
-  } else {
-    filteredBookData = allBooksThemeNames.filter((book) => {
-      return book.themes[0].fiction === 0;
+  //   console.log(allBooksThemeNames[0]);
+  let bookData = allBooksThemeNames;
+
+  // fiction. level 0
+  if (answers[0].answered) {
+    if (answers[0].answer) {
+      bookData = bookData.filter((book) => {
+        return book.themes[0].fiction === 1;
+      });
+    } else {
+      bookData = bookData.filter((book) => {
+        return book.themes[0].fiction === 0;
+      });
+    }
+  }
+
+  //   how long. level 1
+  if (answers[1].answered) {
+    if (answers[1].answer === "small") {
+      bookData = bookData.filter((book) => {
+        return book.pages < 500;
+      });
+    } else if (answers[1].answer === "medium") {
+      bookData = bookData.filter((book) => {
+        return book.pages > 500 && book.themes[0].pages < 800;
+      });
+    } else if (answers[1].answer === "large") {
+      bookData = bookData.filter((book) => {
+        return book.pages > 800;
+      });
+    }
+  }
+
+  //   theme.  level 2
+  if (answers[2].answered) {
+    bookData = bookData.filter((book) => {
+      return book.themes.find((theme) => theme.name === answers[2].answer);
     });
   }
 
-  res.json(filteredBookData);
+  res.json(bookData);
 };
 
 module.exports = { questionnaireQuestions, questionnaireAnswers };
