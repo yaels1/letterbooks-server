@@ -1,4 +1,5 @@
 const knex = require("knex")(require("../knexfile"));
+require("dotenv").config();
 
 const bookData = async (_req, res) => {
   try {
@@ -28,6 +29,9 @@ const singleBook = async (req, res) => {
     );
   if (!singleBookData)
     return res.status(404).send(`Book ID:${req.params.id} not found`);
+
+  singleBookData.image = `${process.env.API_URL}:${process.env.PORT}/${singleBookData.image}`;
+
   res.status(200).json(singleBookData);
 
   const singleBookTheme = await knex("theme").whereIn(

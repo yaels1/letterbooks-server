@@ -12,6 +12,7 @@ const questionnaireRoutes = require("./routes/questionnaire-route");
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("public"));
 
 app.use("/letterbooks/book", bookRoutes);
 app.use("/letterbooks/list", listRoutes);
