@@ -21,23 +21,26 @@ const bookData = async (_req, res) => {
     });
 
     let bookThemes = [];
-
     for (const book of getBook) {
       const themes = await knex("theme")
+        .select("theme.name", "fiction")
         .join("book_theme", "theme.id", "book_theme.theme_id")
-        .where("book_theme.book_id", book.id)
-        .select("theme.name");
+        .where("book_theme.book_id", book.id);
 
       bookThemes.push({
         book_id: book.id,
         themes: themes.map((theme) => theme.name),
+        fiction: Boolean(themes[0].fiction),
       });
     }
+
     const bookAll = getBook.map((book) => {
-      const matchingThemes = bookThemes.find(
-        (item) => item.book_id === book.id
-      );
-      return { ...book, themes: matchingThemes ? matchingThemes.themes : [] };
+      const matchingBook = bookThemes.find((item) => item.book_id === book.id);
+      return {
+        ...book,
+        themes: matchingBook ? matchingBook.themes : [],
+        fiction: matchingBook?.fiction,
+      };
     });
 
     res.status(200).json(bookAll);
