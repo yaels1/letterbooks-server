@@ -137,4 +137,76 @@ module.exports = [
     id: 31,
     name: "Frank Herbert",
   },
+  {
+    id: 32,
+    name: "Hunter S. Thompson, Ralph Steadman",
+  },
+  {
+    id: 33,
+    name: "H.G Wells, Arthur C. Clarke",
+  },
+  {
+    id: 34,
+    name: "Ken Kelsey",
+  },
+  {
+    id: 35,
+    name: "George R. R. Martin",
+  },
+  {
+    id: 36,
+    name: "Ellen Marie Wiseman",
+  },
+  {
+    id: 37,
+    name: "Darren Shan",
+  },
+  {
+    id: 38,
+    name: "Derek Landy, Tom Percival",
+  },
+  {
+    id: 39,
+    name: "Lemony Snicket",
+  },
+  {
+    id: 40,
+    name: "Taylor Jenkis Reid",
+  },
+  {
+    id: 41,
+    name: "Dolly Alderton",
+  },
+  {
+    id: 42,
+    name: "Steven D. Levitt, Stephen J. Dubner",
+  },
+  {
+    id: 43,
+    name: "Peter Gpdfrey-Smith",
+  },
+  {
+    id: 44,
+    name: "Nigella Lawson",
+  },
+  {
+    id: 45,
+    name: "Hayden Herrera",
+  },
+  {
+    id: 46,
+    name: "Sally Rooney",
+  },
+  {
+    id: 47,
+    name: "Julia Golding",
+  },
+  {
+    id: 48,
+    name: "Jeffrey Archer",
+  },
+  {
+    id: 49,
+    name: "Julia Quinn",
+  },
 ];

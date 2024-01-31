@@ -179,4 +179,160 @@ module.exports = [
     book_id: 30,
     theme_id: 1,
   },
+  {
+    book_id: 31,
+    theme_id: 7,
+  },
+  {
+    book_id: 31,
+    theme_id: 10,
+  },
+  {
+    book_id: 32,
+    theme_id: 1,
+  },
+  {
+    book_id: 32,
+    theme_id: 2,
+  },
+  {
+    book_id: 32,
+    theme_id: 3,
+  },
+  {
+    book_id: 32,
+    theme_id: 14,
+  },
+  {
+    book_id: 33,
+    theme_id: 1,
+  },
+  {
+    book_id: 34,
+    theme_id: 2,
+  },
+  {
+    book_id: 34,
+    theme_id: 14,
+  },
+  {
+    book_id: 35,
+    theme_id: 2,
+  },
+  {
+    book_id: 35,
+    theme_id: 3,
+  },
+  {
+    book_id: 35,
+    theme_id: 14,
+  },
+  {
+    book_id: 36,
+    theme_id: 3,
+  },
+  {
+    book_id: 36,
+    theme_id: 2,
+  },
+  {
+    book_id: 36,
+    theme_id: 14,
+  },
+  {
+    book_id: 37,
+    theme_id: 6,
+  },
+  {
+    book_id: 37,
+    theme_id: 5,
+  },
+  {
+    book_id: 37,
+    theme_id: 9,
+  },
+  {
+    book_id: 38,
+    theme_id: 8,
+  },
+  {
+    book_id: 38,
+    theme_id: 3,
+  },
+  {
+    book_id: 38,
+    theme_id: 2,
+  },
+  {
+    book_id: 39,
+    theme_id: 8,
+  },
+  {
+    book_id: 39,
+    theme_id: 2,
+  },
+  {
+    book_id: 40,
+    theme_id: 8,
+  },
+  {
+    book_id: 41,
+    theme_id: 4,
+  },
+  {
+    book_id: 41,
+    theme_id: 6,
+  },
+  {
+    book_id: 42,
+    theme_id: 4,
+  },
+  {
+    book_id: 42,
+    theme_id: 10,
+  },
+  {
+    book_id: 43,
+    theme_id: 13,
+  },
+  {
+    book_id: 44,
+    theme_id: 11,
+  },
+  {
+    book_id: 45,
+    theme_id: 12,
+  },
+  {
+    book_id: 46,
+    theme_id: 10,
+  },
+  {
+    book_id: 46,
+    theme_id: 9,
+  },
+  {
+    book_id: 47,
+    theme_id: 4,
+  },
+  {
+    book_id: 48,
+    theme_id: 6,
+  },
+  {
+    book_id: 48,
+    theme_id: 8,
+  },
+  {
+    book_id: 49,
+    theme_id: 6,
+  },
+  {
+    book_id: 50,
+    theme_id: 6,
+  },
+  {
+    book_id: 50,
+    theme_id: 4,
+  },
 ];
