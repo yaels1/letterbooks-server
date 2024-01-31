@@ -64,4 +64,9 @@ module.exports = [
     fiction: true,
     name: "finance",
   },
+  {
+    id: 14,
+    fiction: true,
+    name: "science-fiction",
+  },
 ];

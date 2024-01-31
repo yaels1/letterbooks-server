@@ -10,7 +10,9 @@ exports.up = function (knex) {
     table.string("email").notNullable().unique();
     table.string("password").notNullable();
     table.string("phone");
+    table.string("age");
     table.string("address");
+    table.string("fav_book");
     table.string("role");
   });
 };

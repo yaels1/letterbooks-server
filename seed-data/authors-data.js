@@ -119,8 +119,22 @@ module.exports = [
     id: 27,
     name: "Rick Riordan",
   },
+
+  // other
   {
     id: 28,
     name: "Rebecca Yarros",
+  },
+  {
+    id: 29,
+    name: "Agatha Christie",
+  },
+  {
+    id: 30,
+    name: "Andy Weir",
+  },
+  {
+    id: 31,
+    name: "Frank Herbert",
   },
 ];
