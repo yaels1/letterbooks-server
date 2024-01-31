@@ -1,7 +1,13 @@
 const knex = require("knex")(require("../knexfile"));
+require("dotenv").config();
+
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   const { first_name, last_name, phone, address, email, password } = req.body;
+
+  console.log(req.body);
 
   if (!first_name || !last_name || !email || !password) {
     return res.status(400).send("Please enter the required fields.");
@@ -19,6 +25,8 @@ const register = async (req, res) => {
     password: hashedPassword,
   };
 
+  console.log(req.body);
+
   try {
     await knex("users").insert(newUser);
     return res.status(201).json(newUser);
@@ -30,6 +38,8 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+
+  console.log(req.body);
 
   if (!email || !password) {
     return res.status(400).send("Please enter the required fields");
@@ -55,7 +65,7 @@ const login = async (req, res) => {
     return res.json({ token });
   } catch (error) {
     console.log(error);
-    return res.status(400).json({ message: "Failed login" });
+    return res.status(400).send({ message: "Failed login" });
   }
 };
 
@@ -65,7 +75,7 @@ const profile = async (req, res) => {
     return res.status(401).send("Please login");
   }
 
-  //   console.log(req.headers.authorization);
+  console.log(req.headers.authorization);
   // THIS HOW WE GET THE KEY
   const authHeader = req.headers.authorization;
   const authToken = authHeader.split(" ")[1]; // GET THE TOKEN
