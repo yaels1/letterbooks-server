@@ -1,15 +1,16 @@
-//    /    get
-//    /read    get  post
-//    /recommendations     get
-
 const express = require("express");
 const router = express.Router();
 const controllerList = require("../controllers/controller-list");
 
-// router.route("/list").get(controllerList.listData);
+router
+  .route("/read")
 
-// router.route("/list/read").get().post();
+  .post(controllerList.addUserReadBook);
 
-// router.route("/list/recommendations").get();
+router.route("/:userId/read").get(controllerList.readBookData);
 
 module.exports = router;
+
+// read books
+// join table for userid and bookid post request for when they
+// click on the "add book to my list" button

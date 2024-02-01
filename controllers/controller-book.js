@@ -60,6 +60,7 @@ const singleBook = async (req, res) => {
       .where({ "book.id": req.params.id })
       .first()
       .select(
+        "book.id",
         "book.title",
         "book.pages",
         "book.summary",

@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const {
     first_name,
     last_name,
@@ -18,7 +18,7 @@ const register = async (req, res) => {
   } = req.body;
 
   if (!first_name || !last_name || !email || !password) {
-    return res.status(400).send("Please enter the requirrrrred fields.");
+    return res.status(400).send("Please enter the required fields.");
   }
 
   const hashedPassword = bcrypt.hashSync(password, 6);
@@ -35,7 +35,7 @@ const register = async (req, res) => {
     password: hashedPassword,
   };
 
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     await knex("users").insert(newUser);
@@ -64,7 +64,6 @@ const login = async (req, res) => {
     if (!passwordCorrect) {
       return res.status(400).send("Invalid password");
     }
-    console.log("here");
 
     const token = jwt.sign(
       { id: user.id, email: user.email },

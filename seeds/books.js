@@ -2,8 +2,10 @@ const booksData = require("../seed-data/books-data");
 const authorsData = require("../seed-data/authors-data");
 const themesData = require("../seed-data/themes-data");
 const bookThemesData = require("../seed-data/theme-book-data");
+const usersData = require("../seed-data/user-data");
 
 exports.seed = async function (knex) {
+  await knex("users").del();
   await knex("book_theme").del();
   await knex("book").del();
   await knex("author").del();
@@ -12,4 +14,5 @@ exports.seed = async function (knex) {
   await knex("book").insert(booksData);
   await knex("theme").insert(themesData);
   await knex("book_theme").insert(bookThemesData);
+  await knex("users").insert(usersData);
 };
