@@ -4,7 +4,7 @@ require("dotenv").config();
 const addUserReadBook = async (req, res) => {
   try {
     const newReadBookId = await knex("user_read_book").insert(req.body);
-    console.log(newReadBookId);
+
     res.status(201).json(req.body);
   } catch (error) {
     console.error(error);
@@ -13,8 +13,6 @@ const addUserReadBook = async (req, res) => {
 };
 
 const readBookData = async (req, res) => {
-  //   console.log(req.params.userId);
-
   const readBookList = await knex("user_read_book")
     .where("user_id", req.params.userId)
     .join("book", "user_read_book.book_id", "=", "book.id")
@@ -30,7 +28,6 @@ const readBookData = async (req, res) => {
     book.image = `${process.env.API_URL}:${process.env.PORT}/${book.image}`;
   });
 
-  console.log(readBookList);
   res.json(readBookList);
 };
 
