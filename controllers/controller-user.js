@@ -17,7 +17,16 @@ const register = async (req, res) => {
     password,
   } = req.body;
 
-  if (!first_name || !last_name || !email || !password) {
+  if (
+    !first_name ||
+    !last_name ||
+    phone ||
+    age ||
+    address ||
+    fav_book ||
+    !email ||
+    !password
+  ) {
     return res.status(400).send("Please enter the required fields.");
   }
 

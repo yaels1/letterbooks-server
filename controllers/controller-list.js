@@ -1,5 +1,3 @@
-const { json } = require("express");
-
 const knex = require("knex")(require("../knexfile"));
 require("dotenv").config();
 

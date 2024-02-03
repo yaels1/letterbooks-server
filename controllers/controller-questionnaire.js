@@ -1,5 +1,3 @@
-const knex = require("knex")(require("../knexfile"));
-
 const questionnaireQuestions = async (req, res) => {
   const questions = [
     {
@@ -16,11 +14,3 @@ const questionnaireQuestions = async (req, res) => {
 };
 
 module.exports = { questionnaireQuestions };
-
-// fiction not fiction
-// options of length
-// theme from drop down list
-// in front end  axios.get  map each question to something jsx
-// each thing that is mapped will have a form, when submitted,
-// answer and answered boolean will have things
-// req.body[0].answer for level 0 question
