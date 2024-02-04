@@ -16,9 +16,7 @@ app.use(express.static("public"));
 
 app.use("/letterbooks/book", bookRoutes);
 app.use("/letterbooks/list", listRoutes);
-
 app.use("/letterbooks/questionnaire", questionnaireRoutes);
-
 app.use("/letterbooks/users", userRoutes);
 
 app.listen(
