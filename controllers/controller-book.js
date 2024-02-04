@@ -27,8 +27,6 @@ const bookData = async (_req, res) => {
         .join("book_theme", "theme.id", "book_theme.theme_id")
         .where("book_theme.book_id", book.id);
 
-      console.log(book);
-
       bookThemes.push({
         book_id: book.id,
         themes: themes.map((theme) => theme.name),
