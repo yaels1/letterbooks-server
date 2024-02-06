@@ -44,7 +44,7 @@ const register = async (req, res) => {
 
     return res.status(201).json({ newUser, token });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return res.status(400).json({ message: "Failed registration" });
   }
 };
@@ -75,7 +75,7 @@ const login = async (req, res) => {
 
     return res.json({ token });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return res.status(400).send({ message: "Failed login" });
   }
 };
