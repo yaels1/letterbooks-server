@@ -92,9 +92,9 @@ const profile = async (req, res) => {
     const decoded = jwt.verify(authToken, process.env.JWT_SECRET);
     return res.status(200).send(decoded);
 
-    const user = await knex("users").where({ id: decoded.id }).first();
+    // const user = await knex("users").where({ id: decoded.id }).first();
 
-    res.status(200).json(user);
+    // res.status(200).json(user);
   } catch (error) {
     return res.status(401).send("Invalid auth token");
   }
