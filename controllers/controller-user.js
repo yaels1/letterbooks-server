@@ -44,7 +44,7 @@ const register = async (req, res) => {
 
     return res.status(201).json({ newUser, token });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return res.status(400).json({ message: "Failed registration" });
   }
 };
@@ -75,7 +75,7 @@ const login = async (req, res) => {
 
     return res.json({ token });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return res.status(400).send({ message: "Failed login" });
   }
 };
@@ -92,9 +92,9 @@ const profile = async (req, res) => {
     const decoded = jwt.verify(authToken, process.env.JWT_SECRET);
     return res.status(200).send(decoded);
 
-    const user = await knex("users").where({ id: decoded.id }).first();
+    // const user = await knex("users").where({ id: decoded.id }).first();
 
-    res.status(200).json(user);
+    // res.status(200).json(user);
   } catch (error) {
     return res.status(401).send("Invalid auth token");
   }
