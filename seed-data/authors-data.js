@@ -1,5 +1,4 @@
 module.exports = [
-  // classic
   {
     id: 1,
     name: "Jane Austen",
@@ -12,7 +11,7 @@ module.exports = [
     id: 3,
     name: "Bram Stoker",
   },
-  //   fantasy
+
   {
     id: 4,
     name: "Sarah J Maas",
@@ -25,7 +24,7 @@ module.exports = [
     id: 6,
     name: "C.S Lewis",
   },
-  //   Horror
+
   {
     id: 8,
     name: "Stephen King",
@@ -39,12 +38,11 @@ module.exports = [
     name: "Simone St. James,",
   },
 
-  //   romance
   {
     id: 11,
     name: "John Green",
   },
-  //   murder mystery
+
   {
     id: 12,
     name: "Gillian Flynn",
@@ -53,7 +51,7 @@ module.exports = [
     id: 13,
     name: "Stieg Larsson",
   },
-  //   historical fiction
+
   {
     id: 14,
     name: "Markus Zusak",
@@ -62,7 +60,7 @@ module.exports = [
     id: 15,
     name: "Ken Follet",
   },
-  //   humor
+
   {
     id: 16,
     name: "Joesph Heller",
@@ -75,13 +73,12 @@ module.exports = [
     id: 18,
     name: "Maria Semple",
   },
-  //   kids
+
   {
     id: 19,
     name: "J.K Rowling",
   },
 
-  //   biography
   {
     id: 20,
     name: "Walter Isaacson",
@@ -91,7 +88,6 @@ module.exports = [
     name: "Anne Frank",
   },
 
-  //   science
   {
     id: 22,
     name: "stephen hawking",
@@ -101,7 +97,6 @@ module.exports = [
     name: "Yuval Noah Harari",
   },
 
-  //   cookbooks
   {
     id: 24,
     name: "Julia Child",
@@ -110,7 +105,7 @@ module.exports = [
     id: 25,
     name: "Irma S. Rombauer",
   },
-  //   business
+
   {
     id: 26,
     name: "Benjamin Graham",
@@ -120,7 +115,6 @@ module.exports = [
     name: "Rick Riordan",
   },
 
-  // other
   {
     id: 28,
     name: "Rebecca Yarros",

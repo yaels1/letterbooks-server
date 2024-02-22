@@ -53,16 +53,20 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(400).send("Please enter the required fields");
+    return res.status(400).send("Request body must include email and password");
   }
 
   try {
     const user = await knex("users").where({ email: email }).first();
 
+    if (!user) {
+      return res.status(401).send("Login credentials invalid");
+    }
+
     const passwordCorrect = bcrypt.compareSync(password, user.password);
 
     if (!passwordCorrect) {
-      return res.status(400).send("Invalid password");
+      return res.status(401).send("Login credentials invalid");
     }
 
     const token = jwt.sign(
@@ -91,10 +95,6 @@ const profile = async (req, res) => {
   try {
     const decoded = jwt.verify(authToken, process.env.JWT_SECRET);
     return res.status(200).send(decoded);
-
-    // const user = await knex("users").where({ id: decoded.id }).first();
-
-    // res.status(200).json(user);
   } catch (error) {
     return res.status(401).send("Invalid auth token");
   }
