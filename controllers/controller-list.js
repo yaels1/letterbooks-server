@@ -92,7 +92,7 @@ const wishlistBookData = async (req, res) => {
         wishbookMap.get(pair.id).themes.push(pair.name);
       }
     } else {
-      let newwishbook = {
+      let newWishbook = {
         id: pair.id,
         title: pair.title,
         pages: pair.pages,
@@ -100,7 +100,7 @@ const wishlistBookData = async (req, res) => {
         image: pair.image,
         themes: pair.name ? [pair.name] : [],
       };
-      wishbookMap.set(pair.id, newwishbook);
+      wishbookMap.set(pair.id, newWishbook);
     }
   });
 
@@ -115,9 +115,68 @@ const wishlistBookData = async (req, res) => {
   res.json(newWishlistBookList);
 };
 
+const addUserRecsBook = async (req, res) => {
+  try {
+    await knex("user_recs_book").insert(req.body);
+
+    res.status(201).json(req.body);
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+const recsBookData = async (req, res) => {
+  const recsBookList = await knex("user_recs_book")
+    .where("user_id", req.params.userId)
+    .join("book", "user_recs_book.book_id", "=", "book.id")
+    .join("book_theme", "book.id", "book_theme.book_id")
+    .join("theme", "theme.id", "book_theme.theme_id")
+    .select(
+      "book.id",
+      "book.title",
+      "book.pages",
+      "book.summary",
+      "book.image",
+      "theme.name"
+    );
+
+  const recsBookMap = new Map();
+
+  recsBookList.forEach((pair) => {
+    if (recsBookMap.has(pair.id)) {
+      if (pair.name && !recsBookMap.get(pair.id).themes.includes(pair.name)) {
+        recsBookMap.get(pair.id).themes.push(pair.name);
+      }
+    } else {
+      let newRecsBook = {
+        id: pair.id,
+        title: pair.title,
+        pages: pair.pages,
+        summary: pair.summary,
+        image: pair.image,
+        themes: pair.name ? [pair.name] : [],
+      };
+      recsBookMap.set(pair.id, newRecsBook);
+    }
+  });
+
+  const newRecsBookList = Array.from(recsBookMap.values()).sort((a, b) => {
+    return a.id - b.id;
+  });
+
+  newRecsBookList.forEach((book) => {
+    book.image = `${process.env.API_URL}:${process.env.PORT}/${book.image}`;
+  });
+
+  res.json(newRecsBookList);
+};
+
 module.exports = {
   addUserReadBook,
   readBookData,
   addUserWishlistBook,
   wishlistBookData,
+  addUserRecsBook,
+  recsBookData,
 };
