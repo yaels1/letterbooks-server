@@ -147,7 +147,12 @@ const recsBookData = async (req, res) => {
       "book.summary",
       "book.image",
       "theme.name"
-    );
+    )
+    .whereNotIn("book.id", function () {
+      return this.select("book_id")
+        .from("user_read_book")
+        .where({ user_id: req.params.userId });
+    });
 
   const recsBookMap = new Map();
 
