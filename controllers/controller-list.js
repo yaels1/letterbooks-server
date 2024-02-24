@@ -117,7 +117,15 @@ const wishlistBookData = async (req, res) => {
 
 const addUserRecsBook = async (req, res) => {
   try {
-    await knex("user_recs_book").insert(req.body);
+    const { user_id, books } = req.body;
+    const recommendedBooks = books.map((book) => {
+      return {
+        book_id: book.id,
+        user_id: user_id,
+      };
+    });
+
+    await knex("user_recs_book").insert(recommendedBooks);
 
     res.status(201).json(req.body);
   } catch (error) {
