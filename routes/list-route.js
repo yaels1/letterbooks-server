@@ -6,7 +6,10 @@ router.route("/read").post(controllerList.addUserReadBook);
 router.route("/:userId/read").get(controllerList.readBookData);
 
 router.route("/wishlist").post(controllerList.addUserWishlistBook);
-router.route("/:userId/wishlist").get(controllerList.wishlistBookData);
+router
+  .route("/:userId/wishlist")
+  .get(controllerList.wishlistBookData)
+  .delete(controllerList.deleteWishlistBook);
 
 router.route("/recs").post(controllerList.addUserRecsBook);
 router.route("/:userId/recs").get(controllerList.recsBookData);

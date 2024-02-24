@@ -120,6 +120,43 @@ const wishlistBookData = async (req, res) => {
   res.json(newWishlistBookList);
 };
 
+// const deleteWishlistbook = async(req, res) = {
+
+// try {
+//   const wishlistRemoveBook = await knex("user_wishlist_book").where({book_id: req.params.id}).del();
+
+//   if(wishlistRemoveBook===0){
+//     return res.status(404).json({message: ` book ${req.params.id} is not found`});
+
+//   }
+//   res.status(204)
+// } catch (error){
+//   res.status(500).json({
+//     message: `Unable to retrieve book data for ${req.params.id}`,
+//   });
+// }
+// };
+const deleteWishlistBook = async (req, res) => {
+  try {
+    const wishlistRemoveBook = await knex("user_wishlist_book")
+      .where({ book_id: req.params.id })
+      .del();
+
+    if (wishlistRemoveBook === 0) {
+      return res
+        .status(404)
+        .json({ message: ` book ${req.params.id} is not found` });
+    }
+
+    // No Content response
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).json({
+      message: `Unable to retrieve book data for book with ID ${req.params.id}`,
+    });
+  }
+};
+
 const addUserRecsBook = async (req, res) => {
   try {
     const { user_id, books } = req.body;
